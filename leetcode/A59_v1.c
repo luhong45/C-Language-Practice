@@ -9,16 +9,16 @@ void generateMatrix(int* mat, int n){
     while(loop--){
         int i = startx;
         int j = starty;
-        for(; j < n - offset; j++){
+        for(; j < n - offset; j++){     // left -> right
             mat[i * n + j] = count++;
         }
-        for(; i < n - offset; i++){
+        for(; i < n - offset; i++){     // top -> bottom
             mat[i * n + j] = count++;
         }
-        for(; j > starty; j--){
+        for(; j > starty; j--){         // right -> left
             mat[i * n + j] = count++;
         }
-        for(; i > startx; i--){
+        for(; i > startx; i--){         // bottom -> top
             mat[i * n + j] = count++;
         }
         startx++;
@@ -40,5 +40,4 @@ int main(){
         }
         printf("\n");
     }
-
 }
