@@ -6,7 +6,7 @@ int main(){
     scanf("%d %d", &n, &m);
     int sum = 0;
     int *mat = (int *)malloc(sizeof(int) * n * m);
-    int *horizontal = (int *)calloc(n, sizeof(int));
+    int *horizontal = (int *)calloc(n, sizeof(int)); // allocate memory and initialize all elements to zero
     int *vertical = (int *)calloc(m, sizeof(int));
 
     for(int i = 0; i < n; i++){
