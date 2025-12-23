@@ -74,10 +74,8 @@ int main(){
     addAtHead(&head, 5);
     addAtHead(&head, 10);
     addAtHead(&head, 15);
-
     printlist(head);
     printf("\n index value : %d \n", getNodeIndex(head, 2));
-
     deleteNode(&head, 10);
     addAtHead(&head, 20);
     addAtHead(&head, 30);
