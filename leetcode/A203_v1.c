@@ -10,7 +10,7 @@ void deletenode(int **head, int data){
     struct listnode *prev = NULL, *curr = *head;
     while(curr && curr -> data != data){
         prev = curr;
-        curr -> next = curr;
+        curr = curr -> next;
     }
     if(curr == NULL){
         printf("node doesn't exist!");
