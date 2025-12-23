@@ -59,3 +59,27 @@ int getNodeIndex(struct listnode *head, int index){
     }
     return -1;
 }
+
+void printlist(struct listnode *head){
+    struct listnode *ptr = head;
+    while(ptr -> next){
+        printf(" %d ->", ptr -> data);
+        ptr = ptr -> next;
+    }
+    printf(" %d ", ptr -> data);
+}
+
+int main(){
+    struct listnode *head = NULL;
+    addAtHead(&head, 5);
+    addAtHead(&head, 10);
+    addAtHead(&head, 15);
+
+    printlist(head);
+    printf("\n index value : %d \n", getNodeIndex(head, 2));
+
+    deleteNode(&head, 10);
+    addAtHead(&head, 20);
+    addAtHead(&head, 30);
+    printlist(head);    
+}
