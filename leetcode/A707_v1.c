@@ -31,7 +31,53 @@ void deleteNode(struct listnode **head, int data){
     struct listnode *prev = NULL;
     while(curr && curr -> data != data){
         prev = curr;
-        addAtHead(&head, 30);
-        printlist(head);   
-    } 
+        curr = curr -> next;
+    }
+    if(curr == NULL){
+        printf("node doesn't exists!");
+    }else if(curr == *head){
+        *head = curr -> next;
+        free(curr);
+    }else{
+        prev -> next = curr -> next;
+        free(curr);
+    }
+}
+
+int getNodeIndex(struct listnode *head, int index){
+    struct listnode *curr = head;
+    if(index < 0){
+        return -1;
+    }
+    int count = 0;
+    while(curr != NULL){
+        if(count == index){
+            return curr -> data;
+        }
+        curr = curr -> next;
+        count++;
+    }
+    return -1;
+}
+
+void printlist(struct listnode *head){
+    struct listnode *ptr = head;
+    while(ptr -> next){
+        printf(" %d ->", ptr -> data);
+        ptr = ptr -> next;
+    }
+    printf(" %d ", ptr -> data);
+}
+
+int main(){
+    struct listnode *head = NULL;
+    addAtHead(&head, 5);
+    addAtHead(&head, 10);
+    addAtHead(&head, 15);
+    printlist(head);
+    printf("\n index value : %d \n", getNodeIndex(head, 0));
+    deleteNode(&head, 10);
+    addAtHead(&head, 20);
+    addAtHead(&head, 30);
+    printlist(head);    
 }
