@@ -21,6 +21,7 @@ struct listnode* getInsertionNode(struct listnode *headA, struct listnode *headB
 
     curA = headA;
     curB = headB;
+    // swap curA and curB (if lenB > lenA)
     if(lenB > lenA){
         int tmp = lenA;
         lenA = lenB;
@@ -31,6 +32,7 @@ struct listnode* getInsertionNode(struct listnode *headA, struct listnode *headB
         curB = tmpNode;
     }
     int gap = lenA - lenB;
+
     while(gap--){
         curA = curA -> next;
     }
@@ -43,3 +45,4 @@ struct listnode* getInsertionNode(struct listnode *headA, struct listnode *headB
     }
     return NULL;
 }
+
