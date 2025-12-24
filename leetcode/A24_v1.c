@@ -28,7 +28,7 @@ void swapPairs(struct listnode **head){
         first -> next = second -> next;
         second -> next = first;
         curr -> next = second;
-        curr = first;
+        curr = first; // next round
     }
     *head = new_node -> next;
     free(new_node);
