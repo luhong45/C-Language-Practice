@@ -7,7 +7,7 @@ struct listnode{
 };
 
 // push node
-void push(struct listnode **head, int data){
+void pushHead(struct listnode **head, int data){
     struct listnode *new_node = NULL;
     new_node = (struct listnode *)malloc(sizeof(struct listnode));
     if(new_node == NULL) return;
@@ -46,10 +46,10 @@ void printlist(struct listnode *head){
 
 int main(){
     struct listnode *head = NULL;
-    push(&head, 30);
-    push(&head, 40);
-    push(&head, 50);
-    push(&head, 60);
+    pushHead(&head, 30);
+    pushHead(&head, 40);
+    pushHead(&head, 50);
+    pushHead(&head, 60);
     swapPairs(&head);
     printlist(head);
 }
